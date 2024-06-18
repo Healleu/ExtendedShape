@@ -18,12 +18,14 @@ func _enter_tree() -> void :
 	
 	# Initialize
 	add_custom_type("ConeShape2D", "ConvexPolygonShape2D", preload("2D/Cone/ConeShape2D.gd"), preload("2D/Cone/ConeShape2D.svg"))
+	add_custom_type("TorusCollisionPolygon2D", "CollisionPolygon2D", preload("2D/Torus/TorusCollisionPolygon2D.gd"), preload("2D/Torus/TorusCollisionPolygon2D.svg"))
 	print("Plugin ExtendedShape " + _version + " initialized!")
 	return
 	
 func _exit_tree() -> void :
 	# Deinitialize
 	remove_custom_type("ConeShape2D")
+	remove_custom_type("TorusCollisionPolygon2D")
 	print("Plugin ExtendedShape " + _version + " deinitialized!")
 	return
 
