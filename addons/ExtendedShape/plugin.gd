@@ -26,21 +26,23 @@ func _exit_tree() -> void :
 	# Deinitialize
 	remove_custom_type("ConeShape2D")
 	remove_custom_type("TorusCollisionPolygon2D")
-	print("Plugin ExtendedShape " + _version + " deinitialized!")
+	print("Plugin ExtendedShape v" + _version + " deinitialized!")
 	return
 
 ## Called when the request to the repository is completed, parses the config file and sets the newest version.
 func _on_http_request_request_completed(result : int, response_code : int, headers : PackedStringArray, body : PackedByteArray):
 	var config = ConfigFile.new()
 	var err = config.parse(body.get_string_from_ascii())
-	
 	if err == OK :
-		var newest_version = config.get_value("plugin", "version")
-		config.clear()
-		if newest_version > _version :
-			print("New version of ExtendedShape is available!")
-			print("actual : " + _version + " / lastest : " + newest_version)
-	else :
-		print("Fail to get the lastest version of ExtendedShape")
+		if config.has_section_key("plugin", "version") :
+			var newest_version : Variant = config.get_value("plugin", "version")
+			config.clear()
+			if newest_version > _version :
+				print("New version of ExtendedShape is available!")
+				print("actual : " + _version + " / lastest : " + newest_version)
+				_http.call_deferred("queue_free")
+			return
+				
+	print("Fail to get the lastest version of ExtendedShape")
 	_http.call_deferred("queue_free")
 	return
