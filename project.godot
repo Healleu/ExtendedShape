@@ -1,0 +1,33 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="ExtendedShape"
+config/features=PackedStringArray("4.3", "Forward Plus")
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=800
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ExtendedShape/plugin.cfg")
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Bot"
+2d_physics/layer_3="Food"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
