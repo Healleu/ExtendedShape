@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="ExtendedShape"
-config/features=PackedStringArray("4.3", "Forward Plus")
 config/tags=PackedStringArray("plugin")
+config/features=PackedStringArray("4.3", "Forward Plus")
 
 [display]
 
