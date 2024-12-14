@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3mbinh17jr4h"]
+
+[ext_resource type="Texture2D" uid="uid://px5favbwdh7x" path="res://addons/ExtendedShape/examples/assets/towerDefense_tile246.png" id="1_4o7oa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4t8es"]
+size = Vector2(35, 56)
+
+[node name="Enemy" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_4t8es")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4o7oa")
